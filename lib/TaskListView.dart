@@ -20,8 +20,8 @@ class TaskListView extends StatelessWidget {
           ElevatedButton(
             onPressed: () {
               TaskModel task = TaskModel(
-                title: "titleController.text",
-                description: "descriptionController.text",
+                title: "ini title",
+                description: "ini desc",
               );
               taskController.addTask(task);
             },
@@ -35,14 +35,8 @@ class TaskListView extends StatelessWidget {
                 return ListTile(
                   title: Text(task.title),
                   subtitle: Text(task.description),
-                  trailing: Checkbox(
-                    value: task.isCompleted,
-                    onChanged: (value) {
-                      task.isCompleted = value!;
-                      taskController.updateTask(task);
-                    },
-                  ),
-                  onLongPress: () {
+                  trailing: Icon(Icons.delete),
+                  onTap: () {
                     taskController.deleteTask(task.id!);
                   },
                 );
